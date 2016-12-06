@@ -1,0 +1,30 @@
+# EditorConfig is awesome: http://EditorConfig.org
+
+# top-most EditorConfig file
+root = true
+
+# Unix-style newlines with a newline ending every file
+[*]
+indent_style = space
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+# If we want to be POSIX purists, we define a line as:
+# A sequence of zero or more non- <newline> characters plus a terminating <newline> character.
+insert_final_newline = true
+
+[*.{vue,js,json,html,yml}]
+indent_size = 2
+
+[*.md]
+trim_trailing_whitespace = false
+
+# 4 space indentation
+[*.py]
+indent_size = 4
+
+# Tab indentation (no size specified)
+[Makefile]
+indent_style = tab
