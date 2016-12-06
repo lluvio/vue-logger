@@ -1,5 +1,5 @@
 # vue-logger
-![Ci](https://img.shields.io/circleci/project/github/Lluvio/vue-logger.svg) ![Version](https://img.shields.io/npm/v/vue-logger.svg) ![License](https://img.shields.io/npm/l/vue-logger.svg) ![Downloads](https://img.shields.io/npm/dm/vue-logger.svg)
+[![Ci](https://img.shields.io/circleci/project/github/Lluvio/vue-logger.svg)](https://circleci.com/gh/Lluvio/vue-logger) [![Version](https://img.shields.io/npm/v/vue-logger.svg)](https://www.npmjs.com/package/vue-logger) [![License](https://img.shields.io/npm/l/vue-logger.svg)](https://www.npmjs.com/package/vue-logger) [![Downloads](https://img.shields.io/npm/dm/vue-logger.svg)](https://www.npmjs.com/package/vue-logger)
 
 
 ## Installation
