@@ -2,6 +2,8 @@
 [![Ci](https://img.shields.io/circleci/project/github/Lluvio/vue-logger.svg)](https://circleci.com/gh/Lluvio/vue-logger) [![Version](https://img.shields.io/npm/v/vue-logger.svg)](https://www.npmjs.com/package/vue-logger) [![License](https://img.shields.io/npm/l/vue-logger.svg)](https://www.npmjs.com/package/vue-logger) [![Downloads](https://img.shields.io/npm/dm/vue-logger.svg)](https://www.npmjs.com/package/vue-logger)
 
 
+> It works with Vue.js 2.x and 1.x
+
 ## Installation
 
 ### NPM
