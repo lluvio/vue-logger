@@ -25,11 +25,11 @@ Vue.use(vueLogger, {
 })
 ```
 
-使用
+调用
 
 ```js
 export default {
-  ready () {
+  mounted () {
     // 当 shortname 为 true 时, 默认为true
     this.$error('hello world')
 
@@ -39,7 +39,7 @@ export default {
 }
 ```
 
-默认 levels `['log', 'warn', 'debug', 'error', 'dir']`, 你可以额外添加
+默认 levels `['log', 'warn', 'debug', 'error', 'dir']`, 你可以额外添加，
 
 ```js
 Vue.use(vueLogger, { levels: ['info'] })

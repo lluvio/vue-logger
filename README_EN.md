@@ -53,7 +53,7 @@ this.$info('hello world')
 |prefix|string|None|
 |dev|boolean|true|
 |shortname|boolean|true|
-|levels|array|['log', 'warn', 'debug']|
+|levels|array|['log', 'warn', 'debug', 'error', 'dir']|
 
 ## Development Setup
 
