@@ -1,21 +1,20 @@
 # Vue logger
 [![Ci](https://img.shields.io/circleci/project/github/lluvio/vue-logger.svg)](https://circleci.com/gh/Lluvio/vue-logger) [![Version](https://img.shields.io/npm/v/vue-logger.svg)](https://www.npmjs.com/package/vue-logger) [![License](https://img.shields.io/npm/l/vue-logger.svg)](https://www.npmjs.com/package/vue-logger) [![Downloads](https://img.shields.io/npm/dm/vue-logger.svg)](https://www.npmjs.com/package/vue-logger)
 
-文档(Document): [English](./README_EN.md)
+> It works with Vue.js 2.x and 1.x
 
-> 适用于 vue 1.x 和 2.x
+## Installation
 
-## 安装
+### NPM
 
 ```bash
 npm install vue-logger --save
 ```
 
-## 使用
-
-引入
+## Usage
 
 ```js
+// ready
 import vueLogger from 'vue-logger'
 Vue.use(vueLogger, { 
   prefix: new Date(),
@@ -25,35 +24,26 @@ Vue.use(vueLogger, {
 })
 ```
 
-使用
-
 ```js
+// using
 export default {
   ready () {
-    // 当 shortname 为 true 时, 默认为true
+    // when shortname set true. the default value is true
     this.$error('hello world')
 
-    // 全局使用
+    // using in global
     Vue.console.log('hello world')
   }
 }
 ```
 
-默认 levels `['log', 'warn', 'debug', 'error', 'dir']`, 你可以额外添加
+the default level group are `['log', 'warn', 'debug', 'error', 'dir']`, you can extends via parameter
 
 ```js
 Vue.use(vueLogger, { levels: ['info'] })
 
-// 在组件中使用
+// using in instance
 this.$info('hello world')
-// log依旧可以使用
-this.$log('hello world')
-```
-
-关于`shortname`，默认是 `true`，如果不想要别名，可以这么调用
-
-```js
-this.$console.log()
 ```
 
 ### Options
@@ -63,9 +53,9 @@ this.$console.log()
 |prefix|string|None|
 |dev|boolean|true|
 |shortname|boolean|true|
-|levels|array|['log', 'warn', 'debug', 'error', 'dir']|
+|levels|array|['log', 'warn', 'debug']|
 
-## 开发
+## Development Setup
 
 ```bash
 # install deps

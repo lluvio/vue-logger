@@ -1,5 +1,5 @@
 /*!
- * vue-logger v1.0.0
+ * vue-logger v0.0.1
  * https://github.com/Lluvio/vue-logger
  * Released under the MIT License.
  */
@@ -16,7 +16,8 @@ vLogger.install = function (Vue, options) {
   var logger = {
     dev: true,
     prefix: '',
-    levels: ['log', 'warn', 'debug']
+    shortname: true,
+    levels: ['log', 'warn', 'debug', 'error', 'dir']
   };
   if (options) {
     for (var _iterator = Object.keys(options), _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _iterator[Symbol.iterator]();;) {
@@ -54,11 +55,14 @@ vLogger.install = function (Vue, options) {
     var level = _ref2;
 
     logger[level] = function () {
-      if (!this.dev || typeof console === 'undefined') return;
+      if (!logger.dev || typeof console === 'undefined') return;
       var args = Array.from(arguments);
-      args.unshift(('[' + this.prefix + ' :: ' + level + ']').toUpperCase());
+      args.unshift(('[' + logger.prefix + ' :: ' + level + ']').toUpperCase());
       console[level].apply(console, args);
     };
+    if (logger.shortname) {
+      Vue.prototype['$' + level] = logger[level];
+    }
   };
 
   for (var _iterator2 = logger.levels, _isArray2 = Array.isArray(_iterator2), _i2 = 0, _iterator2 = _isArray2 ? _iterator2 : _iterator2[Symbol.iterator]();;) {
@@ -68,8 +72,8 @@ vLogger.install = function (Vue, options) {
 
     if (_ret === 'break') break;
   }
-  Vue.prototype.$log = logger;
-  Vue.log = logger;
+  Vue.prototype.$console = logger;
+  Vue.console = logger;
 };
 
 return vLogger;

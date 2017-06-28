@@ -1,10 +1,11 @@
 const vLogger = {}
 vLogger.install = function (Vue, options) {
   if (vLogger.installed) return
-  var logger = {
+  const logger = {
     dev: true,
     prefix: '',
-    levels: ['log', 'warn', 'debug']
+    shortname: true,
+    levels: ['log', 'warn', 'debug', 'error', 'dir']
   }
   if (options) {
     for (const key of Object.keys(options)) {
@@ -17,13 +18,16 @@ vLogger.install = function (Vue, options) {
   }
   for (const level of logger.levels) {
     logger[level] = function () {
-      if (!this.dev || typeof console === 'undefined') return
-      var args = Array.from(arguments)
-      args.unshift(`[${this.prefix} :: ${level}]`.toUpperCase())
+      if (!logger.dev || typeof console === 'undefined') return
+      const args = Array.from(arguments)
+      args.unshift(`[${logger.prefix} :: ${level}]`.toUpperCase())
       console[level].apply(console, args)
     }
+    if(logger.shortname) {
+      Vue.prototype[`$${level}`] = logger[level]
+    }
   }
-  Vue.prototype.$log = logger
-  Vue.log = logger
+  Vue.prototype.$console = logger
+  Vue.console = logger
 }
 export default vLogger
