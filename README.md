@@ -58,12 +58,12 @@ this.$console.log()
 
 ### Options
 
-|Name|Type|Default|
-|---|----|-----|
-|prefix|string|None|
-|dev|boolean|true|
-|shortname|boolean|true|
-|levels|array|['log', 'warn', 'debug', 'error', 'dir']|
+| Name      | Type    | Default                                  | Desc             |
+| --------- | ------- | ---------------------------------------- | ---------------- |
+| prefix    | string  | None                                     |                  |
+| dev       | boolean | true                                     | 日志开关，可选择在生产环境中关闭 |
+| shortname | boolean | true                                     |                  |
+| levels    | array   | ['log', 'warn', 'debug', 'error', 'dir'] |                  |
 
 ## 开发
 

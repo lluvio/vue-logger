@@ -48,12 +48,12 @@ this.$info('hello world')
 
 ### Options
 
-|Name|Type|Default|
-|---|----|-----|
-|prefix|string|None|
-|dev|boolean|true|
-|shortname|boolean|true|
-|levels|array|['log', 'warn', 'debug', 'error', 'dir']|
+| Name      | Type    | Default                                  | Description                              |
+| --------- | ------- | ---------------------------------------- | ---------------------------------------- |
+| prefix    | string  | None                                     |                                          |
+| dev       | boolean | true                                     | Switches can be selected in different environments |
+| shortname | boolean | true                                     |                                          |
+| levels    | array   | ['log', 'warn', 'debug', 'error', 'dir'] |                                          |
 
 ## Development Setup
 
