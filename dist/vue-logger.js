@@ -56,7 +56,7 @@ vLogger.install = function (Vue, options) {
 
     logger[level] = function () {
       if (!logger.dev || typeof console === 'undefined') return;
-      var args = Array.from(arguments);
+      var args = Array.prototype.slice.apply(arguments);
       args.unshift(('[' + logger.prefix + ' :: ' + level + ']').toUpperCase());
       console[level].apply(console, args);
     };

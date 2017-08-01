@@ -1,6 +1,6 @@
 {
   "name": "vue-logger",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "the logger module for Vue.js",
   "main": "dist/vue-logger.js",
   "scripts": {
