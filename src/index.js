@@ -19,11 +19,11 @@ vLogger.install = function (Vue, options) {
   for (const level of logger.levels) {
     logger[level] = function () {
       if (!logger.dev || typeof console === 'undefined') return
-      const args = Array.from(arguments)
+      const args = Array.prototype.slice.apply(arguments)
       args.unshift(`[${logger.prefix} :: ${level}]`.toUpperCase())
       console[level].apply(console, args)
     }
-    if(logger.shortname) {
+    if (logger.shortname) {
       Vue.prototype[`$${level}`] = logger[level]
     }
   }
