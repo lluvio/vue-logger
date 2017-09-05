@@ -20,7 +20,8 @@ vLogger.install = function (Vue, options) {
     logger[level] = function () {
       if (!logger.dev || typeof console === 'undefined') return
       const args = Array.prototype.slice.apply(arguments)
-      args.unshift(`[${logger.prefix} :: ${level}]`.toUpperCase())
+      const prefix = (typeof logger.prefix === 'function') ? logger.prefix() : logger.prefix;
+      args.unshift(`[${prefix} :: ${level}]`.toUpperCase())
       console[level].apply(console, args)
     }
     if (logger.shortname) {
