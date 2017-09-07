@@ -17,7 +17,7 @@ npm install vue-logger --save
 // ready
 import vueLogger from 'vue-logger'
 Vue.use(vueLogger, { 
-  prefix: new Date(),
+  prefix: () => new Date(),
   dev: true,
   shortname: true,
   levels: ['log', 'warn', 'debug', 'error', 'dir']
@@ -50,8 +50,8 @@ this.$info('hello world')
 
 | Name      | Type    | Default                                  | Description                              |
 | --------- | ------- | ---------------------------------------- | ---------------------------------------- |
-| prefix    | string  | None                                     |                                          |
-| dev       | boolean | true                                     | Switches can be selected in different environments |
+| prefix    | string  | None                                     | The prefix can be dynamically generated  |
+| dev       | boolean | true                                     | Log switch, selectable for shutdown in production environment |
 | shortname | boolean | true                                     |                                          |
 | levels    | array   | ['log', 'warn', 'debug', 'error', 'dir'] |                                          |
 

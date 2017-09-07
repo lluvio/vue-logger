@@ -18,7 +18,7 @@ npm install vue-logger --save
 ```js
 import vueLogger from 'vue-logger'
 Vue.use(vueLogger, { 
-  prefix: new Date(),
+  prefix: () => new Date(),
   dev: true,
   shortname: true,
   levels: ['log', 'warn', 'debug', 'error', 'dir']
@@ -58,12 +58,12 @@ this.$console.log()
 
 ### Options
 
-| Name      | Type    | Default                                  | Desc             |
-| --------- | ------- | ---------------------------------------- | ---------------- |
-| prefix    | string  | None                                     |                  |
-| dev       | boolean | true                                     | 日志开关，可选择在生产环境中关闭 |
-| shortname | boolean | true                                     |                  |
-| levels    | array   | ['log', 'warn', 'debug', 'error', 'dir'] |                  |
+| Name      | Type    | Default                                  | Desc                      |
+| --------- | ------- | ---------------------------------------- | ------------------------- |
+| prefix    | string  | None                                     | 日志前缀，可以通过 `function `动态添加 |
+| dev       | boolean | true                                     | 日志开关，可选择在生产环境中关闭          |
+| shortname | boolean | true                                     |                           |
+| levels    | array   | ['log', 'warn', 'debug', 'error', 'dir'] |                           |
 
 ## 开发
 
