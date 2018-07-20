@@ -1,4 +1,5 @@
 # Vue logger
+
 [![Ci](https://img.shields.io/circleci/project/github/lluvio/vue-logger.svg)](https://circleci.com/gh/Lluvio/vue-logger) [![Version](https://img.shields.io/npm/v/vue-logger.svg)](https://www.npmjs.com/package/vue-logger) [![License](https://img.shields.io/npm/l/vue-logger.svg)](https://www.npmjs.com/package/vue-logger) [![Downloads](https://img.shields.io/npm/dm/vue-logger.svg)](https://www.npmjs.com/package/vue-logger)
 
 文档(Document): [English](./README_EN.md)
@@ -16,54 +17,56 @@ npm install vue-logger --save
 引入
 
 ```js
-import vueLogger from 'vue-logger'
-Vue.use(vueLogger, { 
+import vueLogger from "vue-logger";
+Vue.use(vueLogger, {
   prefix: () => new Date(),
   dev: true,
   shortname: true,
-  levels: ['log', 'warn', 'debug', 'error', 'dir']
-})
+  levels: ["log", "warn", "debug", "error", "dir"],
+  forceLevels: []
+});
 ```
 
 调用
 
 ```js
 export default {
-  mounted () {
+  mounted() {
     // 当 shortname 为 true 时, 默认为true
-    this.$error('hello world')
+    this.$error("hello world");
 
     // 全局使用
-    Vue.console.log('hello world')
+    Vue.console.log("hello world");
   }
-}
+};
 ```
 
 默认 levels `['log', 'warn', 'debug', 'error', 'dir']`, 你可以额外添加，
 
 ```js
-Vue.use(vueLogger, { levels: ['info'] })
+Vue.use(vueLogger, { levels: ["info"] });
 
 // 在组件中使用
-this.$info('hello world')
+this.$info("hello world");
 // log依旧可以使用
-this.$log('hello world')
+this.$log("hello world");
 ```
 
 关于`shortname`，默认是 `true`，如果不想要别名，可以这么调用
 
 ```js
-this.$console.log()
+this.$console.log();
 ```
 
 ### Options
 
-| Name      | Type    | Default                                  | Desc                      |
-| --------- | ------- | ---------------------------------------- | ------------------------- |
-| prefix    | string  | None                                     | 日志前缀，可以通过 `function `动态添加 |
-| dev       | boolean | true                                     | 日志开关，可选择在生产环境中关闭          |
-| shortname | boolean | true                                     |                           |
-| levels    | array   | ['log', 'warn', 'debug', 'error', 'dir'] |                           |
+| Name        | Type    | Default                                  | Desc                                  |
+| ----------- | ------- | ---------------------------------------- | ------------------------------------- |
+| prefix      | string  | None                                     | 日志前缀，可以通过 `function`动态添加 |
+| dev         | boolean | true                                     | 日志开关，可选择在生产环境中关闭      |
+| shortname   | boolean | true                                     |                                       |
+| levels      | array   | ['log', 'warn', 'debug', 'error', 'dir'] |                                       |
+| forceLevels | array   | []                                       | 无视 dev 的配置 强制打印              |
 
 ## 开发
 

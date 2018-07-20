@@ -1,4 +1,5 @@
 # Vue logger
+
 [![Ci](https://img.shields.io/circleci/project/github/lluvio/vue-logger.svg)](https://circleci.com/gh/Lluvio/vue-logger) [![Version](https://img.shields.io/npm/v/vue-logger.svg)](https://www.npmjs.com/package/vue-logger) [![License](https://img.shields.io/npm/l/vue-logger.svg)](https://www.npmjs.com/package/vue-logger) [![Downloads](https://img.shields.io/npm/dm/vue-logger.svg)](https://www.npmjs.com/package/vue-logger)
 
 > It works with Vue.js 2.x and 1.x
@@ -15,45 +16,47 @@ npm install vue-logger --save
 
 ```js
 // ready
-import vueLogger from 'vue-logger'
-Vue.use(vueLogger, { 
+import vueLogger from "vue-logger";
+Vue.use(vueLogger, {
   prefix: () => new Date(),
   dev: true,
   shortname: true,
-  levels: ['log', 'warn', 'debug', 'error', 'dir']
-})
+  levels: ["log", "warn", "debug", "error", "dir"],
+  forceLevels: []
+});
 ```
 
 ```js
 // using
 export default {
-  ready () {
+  ready() {
     // when shortname set true. the default value is true
-    this.$error('hello world')
+    this.$error("hello world");
 
     // using in global
-    Vue.console.log('hello world')
+    Vue.console.log("hello world");
   }
-}
+};
 ```
 
 the default level group are `['log', 'warn', 'debug', 'error', 'dir']`, you can extends via parameter
 
 ```js
-Vue.use(vueLogger, { levels: ['info'] })
+Vue.use(vueLogger, { levels: ["info"] });
 
 // using in instance
-this.$info('hello world')
+this.$info("hello world");
 ```
 
 ### Options
 
-| Name      | Type    | Default                                  | Description                              |
-| --------- | ------- | ---------------------------------------- | ---------------------------------------- |
-| prefix    | string  | None                                     | The prefix can be dynamically generated  |
-| dev       | boolean | true                                     | Log switch, selectable for shutdown in production environment |
-| shortname | boolean | true                                     |                                          |
-| levels    | array   | ['log', 'warn', 'debug', 'error', 'dir'] |                                          |
+| Name        | Type    | Default                                  | Description                                                   |
+| ----------- | ------- | ---------------------------------------- | ------------------------------------------------------------- |
+| prefix      | string  | None                                     | The prefix can be dynamically generated                       |
+| dev         | boolean | true                                     | Log switch, selectable for shutdown in production environment |
+| shortname   | boolean | true                                     |                                                               |
+| levels      | array   | ['log', 'warn', 'debug', 'error', 'dir'] |                                                               |
+| forceLevels | array   | []                                       | some level would be displayed regardless of the dev option    |
 
 ## Development Setup
 
